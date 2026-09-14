@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2° BGU "D" - Recuerdos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #d9534f, #b52b27);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Nota del autor y descripción */
+        .nota-autor {
+            background: #fff8e7;
+            border-left: 4px solid #f0ad4e;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #8a6d3b;
+        }
+
+        .descripcion {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* SISTEMA DE PESTAÑAS (TABS) EN CSS */
+        .contenedor-tabs {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Ocultar los botones de radio nativos */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Estilo de los botones de pestaña */
+        .labels-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            padding: 8px 14px;
+            background-color: #e2e8f0;
+            color: #4a5568;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Pestaña activa (cambia según el radio seleccionado) */
+        #tab1:checked ~ .labels-tabs label[for="tab1"],
+        #tab2:checked ~ .labels-tabs label[for="tab2"],
+        #tab3:checked ~ .labels-tabs label[for="tab3"] {
+            background-color: #d9534f;
+            color: white;
+            box-shadow: 0 2px 5px rgba(217, 83, 79, 0.4);
+        }
+
+        /* Ocultar todos los bloques de galerías por defecto */
+        .galeria-grupo {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+        }
+
+        /* Mostrar solo la galería correspondiente al tab seleccionado */
+        #tab1:checked ~ .contenido-tabs #galeria1,
+        #tab2:checked ~ .contenido-tabs #galeria2,
+        #tab3:checked ~ .contenido-tabs #galeria3 {
+            display: grid;
+        }
+
+        /* Estilo de imágenes */
+        .galeria-grupo img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            border: 2px solid #fff;
+        }
+
+        /* Pie de página con créditos */
+        footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        footer strong {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎓 2° BGU "D" 🎓</h1>
+        <p>Nuestros momentos en el colegio</p>
+    </header>
+
+    <!-- Decorado de Mi Primera Página Web -->
+    <div class="nota-autor">
+        ✨ <strong>¡Mi primera página web!</strong> Creada por <strong>Adonis Ramírez Menéndez</strong>.
+    </div>
+
+    <div class="descripcion">
+        <p>Somos el curso <strong>2.º BGU "D"</strong>. Aquí compartimos algunos de los mejores recuerdos, momentos en el aula de clases y actividades del año lectivo.</p>
+    </div>
+
+    <!-- CONTENEDOR CON PESTAÑAS -->
+    <div class="contenedor-tabs">
+        
+        <!-- Botones ocultos para control -->
+        <input type="radio" id="tab1" name="pestanas" checked>
+        <input type="radio" id="tab2" name="pestanas">
+        <input type="radio" id="tab3" name="pestanas">
+
+        <!-- Botones visibles para seleccionar pestaña -->
+        <div class="labels-tabs">
+            <label for="tab1" class="tab-btn">📷 Grupo 1</label>
+            <label for="tab2" class="tab-btn">📷 Grupo 2</label>
+            <label for="tab3" class="tab-btn">📷 Grupo 3</label>
+        </div>
+
+        <!-- Contenido de las galerías -->
+        <div class="contenido-tabs">
+            
+            <!-- Pestaña 1 (3 imágenes) -->
+            <div class="galeria-grupo" id="galeria1">
+                <img src="foto1.jpg" alt="Foto 1">
+                <img src="foto3.jpg" alt="Foto 3">
+                <img src="foto4.jpg" alt="Foto 4">
+            </div>
+
+            <!-- Pestaña 2 (3 imágenes) -->
+            <div class="galeria-grupo" id="galeria2">
+                <img src="foto5.jpg" alt="Foto 5">
+                <img src="foto6.jpg" alt="Foto 6">
+                <img src="foto7.jpg" alt="Foto 7">
+            </div>
+
+            <!-- Pestaña 3 (3 imágenes) -->
+            <div class="galeria-grupo" id="galeria3">
+                <img src="foto8.jpg" alt="Foto 8">
+                <img src="foto9.jpg" alt="Foto 9">
+                <img src="foto10.jpg" alt="Foto 10">
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>2.º Bachillerato General Unificado "D"</p>
+        <p>Diseñado por <strong>Adonis Ramírez Menéndez</strong></p>
+    </footer>
+
+</body>
+</html>
